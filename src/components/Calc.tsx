@@ -88,6 +88,7 @@ const StyledOutput = styled.h3<{ $negative: boolean }>`
     align-items: center;
     /*top margin of (5%), right margin in (auto), bottom margin of (2%), and left margin in (auto)*/
     margin: 5% auto 2% auto;
+    /*handle negative result with if else*/
     color: ${(props) => (props.$negative ? "red" : "#F1DEC9")};
 `;
 
@@ -108,6 +109,7 @@ const StyledDivSection2 = styled.div`
 export default function Calc(){
     const{num1, setNum1, num2, setNum2, result, calculate, clear} = useCalculator();
 
+    //created to handle negative results
     const isNegative = Number(result) < 0;
 
     return(
@@ -116,23 +118,27 @@ export default function Calc(){
             <StyledCalc>
                 <StyledCalcH3>CALCULATOR</StyledCalcH3>
 
+                {/* learned how to use onChange from Lecture 9, Page 4 */}
                 <StyledInput value={num1} onChange={(e) =>
                     setNum1(e.target.value)} placeholder=""/>
                 <StyledInput value={num2} onChange={(e) =>
                     setNum2(e.target.value)} placeholder=""/>
 
                 <StyledDivSection1>
+                    {/* learned how to use onClick from Lecture 9, Page 4 */}
                     <StyledButton onClick={() => calculate('add')}>+</StyledButton>
                     <StyledButton onClick={() => calculate('subtract')}>-</StyledButton>
                     <StyledButton onClick={() => calculate('multiply')}>*</StyledButton>
                 </StyledDivSection1>
 
                 <StyledDivSection2>
+                    {/* learned how to use onClick from Lecture 9, Page 4 */}
                     <StyledButton onClick={() => calculate('divide')}>/</StyledButton>
                     <StyledButton onClick={() => calculate('power')}>^</StyledButton>
                     <StyledButton onClick={clear}>Clear</StyledButton>
                 </StyledDivSection2>
 
+                {/*handle negative results*/}
                 <StyledOutput $negative={isNegative}>{result}</StyledOutput>
             </StyledCalc>
         </StyledMain>

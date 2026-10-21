@@ -59,6 +59,7 @@ const StyledLink = styled(Link)`
 
 export default function Nav(){
     return(
+                //learned how to use Link from Lecture 9, Page 11
                 <StyledNav>
                     <StyledUl>
                         <StyledLi><StyledLink to={"/"}>Home</StyledLink></StyledLi>

@@ -6,9 +6,11 @@ export default function useCalculator(){
     const [result, setResult] = useState('');
 
     const calculate=(operation: string) => {
+        //learned how to use Number from Lecture 3, Page 34
         const a = Number(num1);
         const b = Number(num2);
 
+        //operations
         switch(operation){
             case 'add':
                 setResult(`${a + b}`);
@@ -35,6 +37,7 @@ export default function useCalculator(){
         }
     };
 
+    //clear button
     const clear=() => {
         setNum1('');
         setNum2('');

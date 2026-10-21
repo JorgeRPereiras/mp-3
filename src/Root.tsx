@@ -47,6 +47,7 @@ const StyledMain = styled.main`
 
 export default function Root(){
     return(
+        //learned how to use Route from Lecture 9, Page 15
         <PageWrapper>
             <PageContainer>
                 <Nav/>
